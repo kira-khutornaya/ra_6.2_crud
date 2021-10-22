@@ -1,38 +1,149 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Notes {
+  padding: 30px;
   display: flex;
   flex-direction: column;
+}
+
+.Notes__header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.Notes__title {
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Notes__reload {
+  margin-left: 35px;
+  color: rgb(9, 175, 78);
+}
+
+.Notes__reload:hover {
+  border: 1px solid rgb(9, 175, 78);
+  color: rgb(9, 175, 78, .6);
+}
+
+.btn {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.NotesContainer {
+  width: 950px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Note {
+  box-sizing: border-box;
+  width: 31%;
+  padding: 15px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.Note:nth-child(n + 2) {
+  margin-left: 25px;
+}
+
+.Note:nth-child(3n + 4) {
+  margin-left: 0;
+}
+
+.Note:nth-child(n + 4) {
+  margin-top: 25px;
+}
+
+.Note__remove {
+  position: absolute;
+  top: calc(-35px / 2);
+  right: calc(-35px / 2);
+  color: red;
+}
+
+.Note__remove:hover {
+  border: 1px solid red;
+  color: rgb(255, 0, 0, .6);
+}
+
+.Form {
+  width: 350px;
+  position: relative;
+}
+
+.Form__textbox {
+  box-sizing: border-box;
+  width: 350px;
+  height: 100px;
+  padding: 15px 50px 15px 15px;
+  border: 1px solid #000;
+  outline: none;
+}
+
+.Form__btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.Form__btn:hover {
+  color: #00000090;
+}
+
+@media (min-width: 768px) and (max-width: 1066px) {
+  .NotesContainer {
+    width: 625px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Note {
+    width: 47%;
+  }
+
+  .Note:nth-child(n + 2) {
+    margin-left: 25px;
+  }
+
+  .Note:nth-child(n + 3) {
+    margin-top: 25px;
+  }
+
+  .Note:nth-child(2n + 3) {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .NotesContainer {
+    width: 300px;
+  }
+
+  .Note {
+    width: 100%;
+  }
+
+  .Note:nth-child(n + 2) {
+    margin-left: 0;
+    margin-top: 25px;
+  }
+
+  .Form {
+    width: 100%;
+  }
+
+  .Form__textbox {
+    width: 100%;
   }
 }
